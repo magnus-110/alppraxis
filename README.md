@@ -12,12 +12,17 @@ Ein Kalender für beide Standorte. Vier Wege führen dorthin.
 ## Schnellstart
 
 ```bash
+git clone https://github.com/magnus-110/alppraxis.git
+cd alppraxis
+cp .env.example .env      # unter Windows: copy .env.example .env
 npm install
-cp .env.example .env     # Zugangsdaten sind schon eingetragen
 npm run dev
 ```
 
-Die App läuft danach auf http://localhost:5173
+Die App läuft danach auf **http://localhost:8080**
+
+Ausführliche Anleitung inklusive Fehlerbehebung: [LOKAL.md](LOKAL.md)
+Veröffentlichen im Internet: [VERCEL.md](VERCEL.md)
 
 ## Seiten
 
@@ -33,6 +38,16 @@ Die App läuft danach auf http://localhost:5173
 
 Beide Buchungsfenster funktionieren mit `?embed=1` ohne Kopf- und Fußzeile im iframe
 und melden ihre Höhe an die einbettende Seite, damit der Rahmen mitwächst.
+
+## Demo-Konten
+
+| Rolle | E-Mail | Passwort |
+|-------|--------|----------|
+| Praxisleitung | `katrin@demo.alppraxis.de` | `Alppraxis-Demo-2026` |
+| Therapeutin | `therapeutin@demo.alppraxis.de` | `Alppraxis-Demo-2026` |
+| Rezeption Hotel | `rezeption@demo.schlossanger.de` | `Alppraxis-Demo-2026` |
+
+Nur zum Ausprobieren. Vor dem ersten echten Einsatz löschen.
 
 ## Rollen
 
