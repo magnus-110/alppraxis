@@ -1,0 +1,4 @@
+dist
+.output
+src/routeTree.gen.ts
+src/integrations/supabase/types.ts
