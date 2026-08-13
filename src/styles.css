@@ -1,0 +1,197 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================================
+   Schriften
+   Alppraxis  : Poppins (Überschriften) + Inter (Fließtext)
+   Schlossanger: Source Serif (Überschriften) + Source Sans
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=Source+Sans+3:wght@300;400;500;600&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   DESIGN ALPPRAXIS  (Standard)
+   ============================================================ */
+:root {
+  --marke-name: "Alppraxis";
+
+  /* Farben direkt von alppraxis.com uebernommen:
+     #4E6772 Schiefergruen-Blau (Hauptfarbe), #ABBBBE Nebelblau (Akzent),
+     #27343A Dunkles Schiefer (Text), #FBFBFB fast weiss (Flaeche) */
+  --background: #fbfbfb;
+  --foreground: #27343a;
+
+  --card: #ffffff;
+  --card-foreground: #27343a;
+  --popover: #ffffff;
+  --popover-foreground: #27343a;
+
+  --primary: #4e6772;
+  --primary-foreground: #ffffff;
+
+  --secondary: #edf1f2;
+  --secondary-foreground: #35474f;
+
+  --muted: #f3f6f6;
+  --muted-foreground: #6b7c83;
+
+  --accent: #abbbbe;
+  --accent-foreground: #22313a;
+
+  --destructive: #a4483c;
+  --destructive-foreground: #ffffff;
+
+  --success: #4b7a5e;
+  --warning: #b1802f;
+
+  --border: #dce4e6;
+  --input: #dce4e6;
+  --ring: #4e6772;
+
+  --radius: 0.5rem;
+
+  /* alppraxis.com nutzt Poppins fuer Ueberschriften und eine leichte Grotesk fuer Text */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --display-weight: 600;
+  --display-spacing: -0.005em;
+  --display-transform: none;
+  --knopf-transform: none;
+  --knopf-spacing: normal;
+
+  --hero: linear-gradient(155deg, #27343a 0%, #4e6772 55%, #abbbbe 100%);
+}
+
+/* ============================================================
+   DESIGN SCHLOSSANGER ALP
+   ============================================================ */
+[data-marke="schlossanger"] {
+  --marke-name: "Schlossanger Alp";
+
+  /* Farben direkt von schlossanger.de uebernommen:
+     #1A171B warmes Schwarz, #A89982 Sand/Messing (Akzent, #978871 beim Darueberfahren),
+     #F3EFE9 Creme-Flaeche, #EAE9E9 feine Linien */
+  --background: #ffffff;
+  --foreground: #1a171b;
+
+  --card: #ffffff;
+  --card-foreground: #1a171b;
+  --popover: #ffffff;
+  --popover-foreground: #1a171b;
+
+  --primary: #1a171b;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f3efe9;
+  --secondary-foreground: #1a171b;
+
+  --muted: #f3efe9;
+  --muted-foreground: #7c7568;
+
+  --accent: #a89982;
+  --accent-foreground: #ffffff;
+
+  --destructive: #b0503f;
+  --destructive-foreground: #ffffff;
+
+  --success: #6a7d5a;
+  --warning: #a89982;
+
+  --border: #eae9e9;
+  --input: #ddd8cf;
+  --ring: #a89982;
+
+  --radius: 0rem;
+
+  /* Das Hotel nutzt die Hausschriften Marat und MaratSans.
+     Als frei verfuegbarer Ersatz mit sehr aehnlicher Anmutung: Source Serif und Source Sans. */
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Source Serif 4", ui-serif, Georgia, serif;
+  --display-weight: 400;
+  --display-spacing: 0.01em;
+  --display-transform: none;
+  --knopf-transform: uppercase;
+  --knopf-spacing: 0.14em;
+
+  --hero: linear-gradient(155deg, #1a171b 0%, #4a4238 55%, #a89982 100%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  h1, h2, h3, .schrift-display {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--display-spacing);
+    text-transform: var(--display-transform);
+    line-height: 1.2;
+  }
+  /* In einem iframe darf nichts ueberstehen */
+  body.eingebettet {
+    background: transparent;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .flaeche-hero {
+    background-image: var(--hero);
+  }
+  /* Im Hotel-Design sind Schaltflaechen gesperrt und gross geschrieben */
+  .knopf-marke {
+    text-transform: var(--knopf-transform);
+    letter-spacing: var(--knopf-spacing);
+  }
+  /* Kleine Grossbuchstaben-Labels, typisch fuer das Hotel-Design */
+  .label-klein {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
